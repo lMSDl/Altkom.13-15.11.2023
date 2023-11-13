@@ -1,95 +1,114 @@
 ﻿using System.Globalization;
 
 
+int seconds = 119345;
 
-int a = 11;
-int b = -4;
+int divider = 60 * 60 * 24;
+int days = seconds / divider;
+seconds = seconds % divider;
 
-int c = a + b;
-Console.WriteLine($"{a} + {b} = {c}");
-c = a - b;
-Console.WriteLine($"{a} - {b} = {c}");
-c = a * b;
-Console.WriteLine($"{a} * {b} = {c}");
-c = a / b; //część dziętna jest ucinana
-Console.WriteLine($"{a} / {b} = {c}");
-c = a % b; //reszta z dzielenia
-Console.WriteLine($"{a} % {b} = {c}");
-
-Console.WriteLine();
-
-float aa = 11f;
-float bb = -4.0f;
-
-float cc = aa + bb;
-Console.WriteLine($"{aa} + {bb} = {cc}");
-cc = aa - bb;
-Console.WriteLine($"{aa} - {bb} = {cc}");
-cc = aa * bb;
-Console.WriteLine($"{aa} * {bb} = {cc}");
-cc = aa / bb;
-Console.WriteLine($"{aa} / {bb} = {cc}");
+divider = 60 * 60;
+int hours = seconds / divider;
+seconds = seconds % divider;
 
 
-//aby wynik był poprawny przy dzieleniu dwóch intów należy jako pierwszą operację "przekształcić" int na float
-//możemy to zrobić poprzez wykonanie jako pierwszą operację mnożenia przez typ o większej prezycji
-cc = 1f * a / b;
-Console.WriteLine($"{a} / {b} = {cc}");
-//lub poprzez rzutowanie (czyli potraktowanie jednego typu jako inny (podany w nawiasie))
-cc =  a / (float)b;
-Console.WriteLine($"{a} / {b} = {cc}");
+divider = 60;
+int minutes = seconds / divider;
+seconds = seconds % divider;
 
-//kolejność działań zgodna z zasadami matematyki
-c = a + a * a;
-Console.WriteLine($"{a} + {a} * {a} = {c}");
-c = (a + a) * a;
-Console.WriteLine($"({a} + {a}) * {a} = {c}");
-
-Console.WriteLine($"short min:{short.MinValue} max:{short.MaxValue}");
-Console.WriteLine($"int min:{int.MinValue} max:{int.MaxValue}");
-Console.WriteLine($"uint min:{uint.MinValue} max:{uint.MaxValue}");
-Console.WriteLine($"long min:{long.MinValue} max:{long.MaxValue}");
-Console.WriteLine($"ulong min:{ulong.MinValue} max:{ulong.MaxValue}");
-Console.WriteLine($"float min:{float.MinValue} max:{float.MaxValue}");
-Console.WriteLine($"double min:{double.MinValue} max:{double.MaxValue}");
-Console.WriteLine($"decimal min:{decimal.MinValue} max:{decimal.MaxValue}");
-
-Console.WriteLine(5 / 3.3f);
-Console.WriteLine(5 / 3.3); // lub 3.3d
-Console.WriteLine(5 / 3.3m);
-
-//Math to klasa zawierające funkcje przydatne w obliczeniach matematycznych
-double value = Math.Sqrt(2); //pierwiastek
-Console.WriteLine(  value);
-value = Math.Pow(2, 5); //potęga 
-Console.WriteLine(value);
-
-//domyślne zachowanie funkcji zaokrąglającej powoduje zaokrąglanie do wartości parzystej - financial rounding
-Console.WriteLine( Math.Round(2.5) );
-Console.WriteLine( Math.Round(3.5) );
-//używamy zaokrąglania znanego ze szkoły
-Console.WriteLine(Math.Round(2.5, MidpointRounding.AwayFromZero));
-Console.WriteLine(Math.Round(3.5, MidpointRounding.AwayFromZero));
-
-//formatowanie liczb
-Console.WriteLine( $"{short.MaxValue:### ###.0#}" );
-
-
-Console.WriteLine("Podaj jakąś wartość liczbową:");
-string intput = Console.ReadLine();
-
-
-//parsowanie/konwersja string na int
-int intValue = int.Parse(intput);
-Console.WriteLine(intValue * 2);
-
-//parsowanie/konwersja string na float
-float floatValue = float.Parse(intput);
-Console.WriteLine(floatValue * 3.5);
+Console.WriteLine($"{days}.{hours:00}:{minutes:d2}:{seconds:00}");
 
 
 
+void Numbers()
+{
 
+    int a = 11;
+    int b = -4;
+
+    int c = a + b;
+    Console.WriteLine($"{a} + {b} = {c}");
+    c = a - b;
+    Console.WriteLine($"{a} - {b} = {c}");
+    c = a * b;
+    Console.WriteLine($"{a} * {b} = {c}");
+    c = a / b; //część dziętna jest ucinana
+    Console.WriteLine($"{a} / {b} = {c}");
+    c = a % b; //reszta z dzielenia
+    Console.WriteLine($"{a} % {b} = {c}");
+
+    Console.WriteLine();
+
+    float aa = 11f;
+    float bb = -4.0f;
+
+    float cc = aa + bb;
+    Console.WriteLine($"{aa} + {bb} = {cc}");
+    cc = aa - bb;
+    Console.WriteLine($"{aa} - {bb} = {cc}");
+    cc = aa * bb;
+    Console.WriteLine($"{aa} * {bb} = {cc}");
+    cc = aa / bb;
+    Console.WriteLine($"{aa} / {bb} = {cc}");
+
+
+    //aby wynik był poprawny przy dzieleniu dwóch intów należy jako pierwszą operację "przekształcić" int na float
+    //możemy to zrobić poprzez wykonanie jako pierwszą operację mnożenia przez typ o większej prezycji
+    cc = 1f * a / b;
+    Console.WriteLine($"{a} / {b} = {cc}");
+    //lub poprzez rzutowanie (czyli potraktowanie jednego typu jako inny (podany w nawiasie))
+    cc = a / (float)b;
+    Console.WriteLine($"{a} / {b} = {cc}");
+
+    //kolejność działań zgodna z zasadami matematyki
+    c = a + a * a;
+    Console.WriteLine($"{a} + {a} * {a} = {c}");
+    c = (a + a) * a;
+    Console.WriteLine($"({a} + {a}) * {a} = {c}");
+
+    Console.WriteLine($"short min:{short.MinValue} max:{short.MaxValue}");
+    Console.WriteLine($"int min:{int.MinValue} max:{int.MaxValue}");
+    Console.WriteLine($"uint min:{uint.MinValue} max:{uint.MaxValue}");
+    Console.WriteLine($"long min:{long.MinValue} max:{long.MaxValue}");
+    Console.WriteLine($"ulong min:{ulong.MinValue} max:{ulong.MaxValue}");
+    Console.WriteLine($"float min:{float.MinValue} max:{float.MaxValue}");
+    Console.WriteLine($"double min:{double.MinValue} max:{double.MaxValue}");
+    Console.WriteLine($"decimal min:{decimal.MinValue} max:{decimal.MaxValue}");
+
+    Console.WriteLine(5 / 3.3f);
+    Console.WriteLine(5 / 3.3); // lub 3.3d
+    Console.WriteLine(5 / 3.3m);
+
+    //Math to klasa zawierające funkcje przydatne w obliczeniach matematycznych
+    double value = Math.Sqrt(2); //pierwiastek
+    Console.WriteLine(value);
+    value = Math.Pow(2, 5); //potęga 
+    Console.WriteLine(value);
+
+    //domyślne zachowanie funkcji zaokrąglającej powoduje zaokrąglanie do wartości parzystej - financial rounding
+    Console.WriteLine(Math.Round(2.5));
+    Console.WriteLine(Math.Round(3.5));
+    //używamy zaokrąglania znanego ze szkoły
+    Console.WriteLine(Math.Round(2.5, MidpointRounding.AwayFromZero));
+    Console.WriteLine(Math.Round(3.5, MidpointRounding.AwayFromZero));
+
+    //formatowanie liczb
+    Console.WriteLine($"{short.MaxValue:### ###.0#}");
+
+
+    Console.WriteLine("Podaj jakąś wartość liczbową:");
+    string intput = Console.ReadLine();
+
+
+    //parsowanie/konwersja string na int
+    int intValue = int.Parse(intput);
+    Console.WriteLine(intValue * 2);
+
+    //parsowanie/konwersja string na float
+    float floatValue = float.Parse(intput);
+    Console.WriteLine(floatValue * 3.5);
+
+}
 
 void Strings()
 {
