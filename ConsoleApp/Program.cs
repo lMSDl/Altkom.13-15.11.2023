@@ -75,6 +75,22 @@ Console.WriteLine(Math.Round(3.5, MidpointRounding.AwayFromZero));
 Console.WriteLine( $"{short.MaxValue:### ###.0#}" );
 
 
+Console.WriteLine("Podaj jakąś wartość liczbową:");
+string intput = Console.ReadLine();
+
+
+//parsowanie/konwersja string na int
+int intValue = int.Parse(intput);
+Console.WriteLine(intValue * 2);
+
+//parsowanie/konwersja string na float
+float floatValue = float.Parse(intput);
+Console.WriteLine(floatValue * 3.5);
+
+
+
+
+
 void Strings()
 {
 
