@@ -19,3 +19,29 @@ Console.WriteLine(target); // WriteLine - wypisanie tekstu na konsolę i dodanie
 target = "Tom";
 
 Console.WriteLine(target);
+
+target = Console.ReadLine();
+
+
+string output;
+
+//łączenie stringów za pomocą operatora +
+output = helloVariable + " " + target + "!"; // łączenie stringów to wyprodukowanie nowego stringa na postawie innych
+Console.WriteLine(output);
+
+//łączenie stringów za pomocą funkcji string.Format - przydatne, gdy musimy wypisać wiele strinów o takim samym formacie
+string format = "{0} {1}!";
+output = string.Format(format, helloVariable, target); // format + ilość stringów zgodna z ilością indeksów (numerownych od 0)
+Console.WriteLine(output);
+
+//łączenie stringów za pomocą interpolacji (string interpolowany)
+output = $"{helloVariable} {target}!"; //$ - włącza string interpolowany
+Console.WriteLine(output);
+output = "{helloVariable} {target}!";
+Console.WriteLine(output);
+
+
+output = "\"C:\\Users\\Student\\Downloads\\Firefox Installer.exe\""; // t - pozwala na używanie znaków specjalnych np: nowa linia: \n, tablilator: \t
+Console.WriteLine(output);
+output = @"C:\Users\Student\Downloads\Firefox Installer.exe"; // @ - wyłącza funkcjonalność \
+Console.WriteLine(output);
