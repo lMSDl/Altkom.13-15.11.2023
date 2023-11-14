@@ -1,61 +1,137 @@
 ﻿using System.Globalization;
 using System.Runtime.Serialization;
 
-Console.WriteLine("Podaj bok kwadratu:");
+
+Console.WriteLine(  "Podaj swoje imię:");
 string input = Console.ReadLine();
 
-//TryParse - zwraca wartość bool mówiącą czy parsowanie się powiodło
-//out - parameter wyjściowy - parametr przez który metoda może nam zwrócić jakąś dodatkową wartość (w tym przypadku jest to wynik parsowania)
-// jeśli parsowanie się nie powiodło, to w parametrze wyjściowym będzie wpisana wartość domyślna typu (dla typów liczbowych jest to 0)
-float size;
-bool parseSuccess = float.TryParse(input, out size);
-if(!parseSuccess)
+//switch - przyjmuje paramet, który jest porównywany z listą przypadków (case)
+switch (input)
 {
-    Console.WriteLine("Nieprawidłowe dane");
-    return; //przerywamy działanie funkcji. Aktualnie jesteśmy w funkcji Main, więc przerwanie jej oznacza zakończenie działania programu
+    //case - rozpatrywany przypadek
+    case "":
+        Console.WriteLine("Szkoda, że nie  chcesz podać swojego imienia");
+        break;
+        //wiwele case'ów może być przypisanych do tego samego kodu
+    case "Alexa":
+    case "alexa":
+        Console.WriteLine("Hej, masz na imię jak asysten Amazon");
+        //kod wykonywany jest od case do break = nie mam potrzeby stosowania klamerek
+        //case musi kończyć się instrukcją break, przerywającą wykonywanie switch
+        break;
+    case "Siri":
+    case "siri":
+        Console.WriteLine("Hej, masz na imię jak asysten Apple");
+        break;
+    case "Cortana":
+    case "cortana":
+        Console.WriteLine("Hej, masz na imię jak asysten Microsoft");
+        break;
+    case "Paul":
+        Console.WriteLine("O.. masz na imię jak mój twórca..");
+        break;
+        //default - odpowiednik else, czyli wykonanie kodu, jeśli nie znaleziono odpowiedniego case
+        //nie jest obowiązkowy
+    default:
+        Console.WriteLine($"Witaj, {input}");
+        break;
 }
 
-
-
-//if sprawdza warunek w nawiasie i jeśli jest on prawdą, to wykonuje się blok kodu pod nim
-if (size < 0)
+int intValue = 5;
+switch(intValue)
 {
-    Console.WriteLine("Nieprawidłowy rozmiar");
+    case < 0:
+        break;
+    case 5:
+        break;
+    case >= 6:
+        break;
 }
-//jeśli poprzedni warunek nie jest spełniony, to sprawdzamy kolejny if
-//else if - może występować wielokrotnie
-else if(size == 0)
+
+/*if (input == "")
 {
-    Console.WriteLine("Kwadrat nie istnieje");
+    Console.WriteLine("Szkoda, że nie  chcesz podać swojego imienia");
 }
-//else - wykonuje siuę w każdym innym przypadku (jeśli nie spełniono żadnego z wyżej występujących warunków)
+else if (input == "Alexa" || input == "alexa")
+{
+    Console.WriteLine("Hej, masz na imię jak asysten Amazon");
+}
+else if (input == "Siri" || input == "siri")
+{
+    Console.WriteLine("Hej, masz na imię jak asysten Apple");
+}
+else if (input == "Cortana" || input == "cortana")
+{
+    Console.WriteLine("Hej, masz na imię jak asysten Microsoft");
+}
+else if (input == "Paul")
+{
+    Console.WriteLine("O.. masz na imię jak mój twórca..");
+}
 else
 {
-    float area = size * size;
-    Console.WriteLine($"Pole kwadratu to: {area}");
+    Console.WriteLine($"Witaj, {input}");
+}*/
+
+
+void ifelse()
+{
+
+    Console.WriteLine("Podaj bok kwadratu:");
+    string input = Console.ReadLine();
+
+    //TryParse - zwraca wartość bool mówiącą czy parsowanie się powiodło
+    //out - parameter wyjściowy - parametr przez który metoda może nam zwrócić jakąś dodatkową wartość (w tym przypadku jest to wynik parsowania)
+    // jeśli parsowanie się nie powiodło, to w parametrze wyjściowym będzie wpisana wartość domyślna typu (dla typów liczbowych jest to 0)
+    float size;
+    bool parseSuccess = float.TryParse(input, out size);
+    if (!parseSuccess)
+    {
+        Console.WriteLine("Nieprawidłowe dane");
+        return; //przerywamy działanie funkcji. Aktualnie jesteśmy w funkcji Main, więc przerwanie jej oznacza zakończenie działania programu
+    }
+
+
+
+    //if sprawdza warunek w nawiasie i jeśli jest on prawdą, to wykonuje się blok kodu pod nim
+    if (size < 0)
+    {
+        Console.WriteLine("Nieprawidłowy rozmiar");
+    }
+    //jeśli poprzedni warunek nie jest spełniony, to sprawdzamy kolejny if
+    //else if - może występować wielokrotnie
+    else if (size == 0)
+    {
+        Console.WriteLine("Kwadrat nie istnieje");
+    }
+    //else - wykonuje siuę w każdym innym przypadku (jeśli nie spełniono żadnego z wyżej występujących warunków)
+    else
+    {
+        float area = size * size;
+        Console.WriteLine($"Pole kwadratu to: {area}");
+    }
+
+    //jeśli używamy else, to tylko jeden blok kodu zostanie wykonany i sprawdzanie warunków kończy się w przypadku wejścia w któryś z nich
+    //jeśli nie używamy else, to każdy if będzie traktowany osobno i warunek będzie sprawdzany niezależnie od innych
+    //wniosek: else jest łącznikiem między kolenymi if'ami
+
+    bool result;
+
+    result = size == 0; //porównanie
+    result = size > 0; //większe
+    result = size < 0; //mniejsze
+    result = size >= 0; //wieksze lub równe
+    result = size <= 0; //mniejsze lub równe
+    result = size != 0; //różne
+
+    result = size > 0 || size == 0; // || - lub logiczne (OR)
+    result = size > 0 && size <= 10; // && - i logiczne (AND)
+
+    result = !result; //zaprzeczenie
+
+    Console.WriteLine();
+
 }
-
-//jeśli używamy else, to tylko jeden blok kodu zostanie wykonany i sprawdzanie warunków kończy się w przypadku wejścia w któryś z nich
-//jeśli nie używamy else, to każdy if będzie traktowany osobno i warunek będzie sprawdzany niezależnie od innych
-//wniosek: else jest łącznikiem między kolenymi if'ami
-
-bool result;
-
-result = size == 0; //porównanie
-result = size > 0; //większe
-result = size < 0; //mniejsze
-result = size >= 0; //wieksze lub równe
-result = size <= 0; //mniejsze lub równe
-result = size != 0; //różne
-
-result = size > 0 || size == 0; // || - lub logiczne (OR)
-result = size > 0 && size <= 10; // && - i logiczne (AND)
-
-result = !result; //zaprzeczenie
-
-Console.WriteLine();
-
-
 
 
 
