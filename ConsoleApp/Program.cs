@@ -1,124 +1,190 @@
 ﻿using System.Globalization;
 
-
-string text = Console.ReadLine();
-string[] words = text.Split(" ");
-
-//foreach - pozwala przejsc po wszystkich elementach tablicy
-foreach (string word in words)
-{
-    Console.WriteLine(word.ToUpper());
-}
-
-//foreach zastępuje poniższy sposób iteracji po tablicy
-/*for (int i = 0; i < words.Length; i++)
-{
-    string word = words[i];
-    Console.WriteLine(word.ToUpper());
-}*/
-
-
-//I - inicjalizacja pętli - wykonuje się tylko raz na początku
-//II - warunek kontynuacji pętli - wykonuje się przed każdym wykonaniem ciałą
-//III - ciało pętli
-//IV - akcja po wykonaniu ciałą - najczęściej jest to inkrementacja licznika
-
-//for(I; II; IV) {
-// III
-//}
-
-for (int i = 0; i < 5; i++ /*i = i + 1*/)
-{
-    Console.WriteLine(i);
-}
-
-
-/*for(; ; )
-{
-    Console.WriteLine("*");
-}*/
-
-int counter = 5;
-
-for (; counter >=0; counter--)
-{
-    Console.WriteLine(  counter);
-}
-
-for (; counter < 3;)
-{
-    Console.WriteLine(counter++);
-}
-
-float result = 0;
-for (double i = 0, limit = Math.Sqrt(4); result < limit; i++)
-{
-    result = (float)Math.Sqrt(i);
-}
-Console.WriteLine(result);
-
-
-string someInput = Console.ReadLine();
-string[] strings = someInput.Split(" ");
-
-for (int i = strings.Length - 1; i >= 0; i--)
-{
-    Console.WriteLine(strings[i]);
-}
-
-
-
 bool exit = false;
-
-//while - pętla która trwa gdy jej parametr jest true
-//parametr jest sprawdzany PRZED każdym wejściem do ciała pętli
-//jeśli przy pierwszym wejściu parametr będzie false, to pętla nigdy się nie wykona
-
-//while(true) //pętla nieskończona
-while(!exit)
-{
-    Console.WriteLine("Co chcesz zrobić?");
-    string input = Console.ReadLine();
-
-    switch (input)
-    {
-        case "exit":
-            exit = true;
-            break;
-
-        default:
-            Console.WriteLine($"Echo: {input}");
-            break;
-    }
-
-
-    Console.ReadLine();
-    Console.Clear();
-}
-
-//do-while - sprawdza warunek po wykonaniu ciała - zapewnia, że zostanie ono wyjonane co najmniej raz
-//pozwala to wyeliminować inicjalizację zmiennych przed wejściem do pętli (jeśli zostaną zainicjalizowane wenątrz ciała)
 do
 {
     Console.WriteLine("Co chcesz zrobić?");
     string input = Console.ReadLine();
 
-    switch (input)
+    if (input == "continue")
     {
-        case "exit":
-            exit = true;
-            break;
+        //continue przerywa ciało pętli i przechodzi do kolejnej iteracji
+        continue;
+    }
+    else if (input == "break")
+    {
+        //break przerywa ciało pętli i wyszedł z pętli
+        break;
+    }
+    else if (input == "exit")
+    {
+        exit = true;
+    }
+    else
+    { 
+        Console.WriteLine($"Echo: {input}");
+    }
 
-        default:
-            exit = false;
-            Console.WriteLine($"Echo: {input}");
-            break;
+    Console.WriteLine("Koniec ciała pętli");
+
+} while (!exit);
+
+Console.WriteLine("Koniec pętli");
+
+
+string[] stringNumbers = Console.ReadLine().Split(" ");
+
+List<int> validInts = new();
+List<int> zeroInts = new();
+
+foreach(string stringNumber in stringNumbers)
+{
+    int value;
+    if(int.TryParse(stringNumber, out value))
+    {
+        validInts.Add(value);
+    }
+    else
+    {
+        Console.WriteLine($"{stringNumber} jest niepoprawną wartością");
+        continue;
+    }
+
+    if (value == 0)
+        zeroInts.Add(value);
+
+    if (value > 50)
+        break;
+
+}
+
+foreach (int zeros in zeroInts)
+{
+    Console.WriteLine(zeros);
+}
+
+void Loops()
+{
+
+    string text = Console.ReadLine();
+    string[] words = text.Split(" ");
+
+    //foreach - pozwala przejsc po wszystkich elementach tablicy
+    foreach (string word in words)
+    {
+        Console.WriteLine(word.ToUpper());
+    }
+
+    //foreach zastępuje poniższy sposób iteracji po tablicy
+    /*for (int i = 0; i < words.Length; i++)
+    {
+        string word = words[i];
+        Console.WriteLine(word.ToUpper());
+    }*/
+
+
+    //I - inicjalizacja pętli - wykonuje się tylko raz na początku
+    //II - warunek kontynuacji pętli - wykonuje się przed każdym wykonaniem ciałą
+    //III - ciało pętli
+    //IV - akcja po wykonaniu ciałą - najczęściej jest to inkrementacja licznika
+
+    //for(I; II; IV) {
+    // III
+    //}
+
+    for (int i = 0; i < 5; i++ /*i = i + 1*/)
+    {
+        Console.WriteLine(i);
     }
 
 
-    Console.ReadLine();
-    Console.Clear();
-} while (!exit);
+    /*for(; ; )
+    {
+        Console.WriteLine("*");
+    }*/
+
+    int counter = 5;
+
+    for (; counter >= 0; counter--)
+    {
+        Console.WriteLine(counter);
+    }
+
+    for (; counter < 3;)
+    {
+        Console.WriteLine(counter++);
+    }
+
+    float result = 0;
+    for (double i = 0, limit = Math.Sqrt(4); result < limit; i++)
+    {
+        result = (float)Math.Sqrt(i);
+    }
+    Console.WriteLine(result);
+
+
+    string someInput = Console.ReadLine();
+    string[] strings = someInput.Split(" ");
+
+    for (int i = strings.Length - 1; i >= 0; i--)
+    {
+        Console.WriteLine(strings[i]);
+    }
+
+
+
+    bool exit = false;
+
+    //while - pętla która trwa gdy jej parametr jest true
+    //parametr jest sprawdzany PRZED każdym wejściem do ciała pętli
+    //jeśli przy pierwszym wejściu parametr będzie false, to pętla nigdy się nie wykona
+
+    //while(true) //pętla nieskończona
+    while (!exit)
+    {
+        Console.WriteLine("Co chcesz zrobić?");
+        string input = Console.ReadLine();
+
+        switch (input)
+        {
+            case "exit":
+                exit = true;
+                break;
+
+            default:
+                Console.WriteLine($"Echo: {input}");
+                break;
+        }
+
+
+        Console.ReadLine();
+        Console.Clear();
+    }
+
+    //do-while - sprawdza warunek po wykonaniu ciała - zapewnia, że zostanie ono wyjonane co najmniej raz
+    //pozwala to wyeliminować inicjalizację zmiennych przed wejściem do pętli (jeśli zostaną zainicjalizowane wenątrz ciała)
+    do
+    {
+        Console.WriteLine("Co chcesz zrobić?");
+        string input = Console.ReadLine();
+
+        switch (input)
+        {
+            case "exit":
+                exit = true;
+                break;
+
+            default:
+                exit = false;
+                Console.WriteLine($"Echo: {input}");
+                break;
+        }
+
+
+        Console.ReadLine();
+        Console.Clear();
+    } while (!exit);
+}
 
 
 void Switch()
