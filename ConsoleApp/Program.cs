@@ -1,5 +1,23 @@
 ﻿using System.Globalization;
 
+
+string text = Console.ReadLine();
+string[] words = text.Split(" ");
+
+//foreach - pozwala przejsc po wszystkich elementach tablicy
+foreach (string word in words)
+{
+    Console.WriteLine(word.ToUpper());
+}
+
+//foreach zastępuje poniższy sposób iteracji po tablicy
+/*for (int i = 0; i < words.Length; i++)
+{
+    string word = words[i];
+    Console.WriteLine(word.ToUpper());
+}*/
+
+
 //I - inicjalizacja pętli - wykonuje się tylko raz na początku
 //II - warunek kontynuacji pętli - wykonuje się przed każdym wykonaniem ciałą
 //III - ciało pętli
@@ -9,7 +27,7 @@
 // III
 //}
 
-for(int i = 0; i < 5; i++ /*i = i + 1*/)
+for (int i = 0; i < 5; i++ /*i = i + 1*/)
 {
     Console.WriteLine(i);
 }
