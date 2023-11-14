@@ -1,6 +1,39 @@
 ﻿using System.Globalization;
 
-Numbers();
+
+int a = 5;
+int b = 10;
+int c = 20;
+
+//deklaracja tablicy przechowującej dane typu int
+//[] - tablica
+int[] arrayInt;
+//inicjalizujemy zmienną nową tablicą typu int o rozmiarze 3
+arrayInt = new int[3];
+
+//tablice indeksowane są od 0 (minimalny indeks)
+arrayInt[0] = a;
+arrayInt[1] = b;
+//maksymalny indeks tablicy to rozmian minus 1 ( 3 - 1 = 2)
+arrayInt[2] = c;
+
+
+arrayInt[0] = arrayInt[0] * 2;
+arrayInt[1] = arrayInt[1] * arrayInt[2];
+
+
+Console.WriteLine(arrayInt[0]);
+Console.WriteLine(arrayInt[1]);
+Console.WriteLine(arrayInt[2]);
+
+Console.WriteLine($"Tablica ma rozmiar {arrayInt.Length}");
+
+string[] stringArray = new string[5];
+
+stringArray[0] = Console.ReadLine();
+
+Console.WriteLine();
+
 
 void TimeExercise()
 {
