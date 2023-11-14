@@ -1,28 +1,30 @@
 ﻿using System.Globalization;
 
+Numbers();
 
-int seconds = 119345;
+void TimeExercise()
+{
+    int seconds = 119345;
 
-int divider = 60 * 60 * 24;
-int days = seconds / divider;
-seconds = seconds % divider;
+    int divider = 60 * 60 * 24;
+    int days = seconds / divider;
+    seconds = seconds % divider;
 
-divider = 60 * 60;
-int hours = seconds / divider;
-seconds = seconds % divider;
+    divider = 60 * 60;
+    int hours = seconds / divider;
+    seconds = seconds % divider;
 
 
-divider = 60;
-int minutes = seconds / divider;
-seconds = seconds % divider;
+    divider = 60;
+    int minutes = seconds / divider;
+    seconds = seconds % divider;
 
-Console.WriteLine($"{days}.{hours:00}:{minutes:d2}:{seconds:00}");
-
+    Console.WriteLine($"{days}.{hours:00}:{minutes:d2}:{seconds:00}");
+}
 
 
 void Numbers()
 {
-
     int a = 11;
     int b = -4;
 
@@ -80,7 +82,7 @@ void Numbers()
     Console.WriteLine(5 / 3.3m);
 
     //Math to klasa zawierające funkcje przydatne w obliczeniach matematycznych
-    double value = Math.Sqrt(2); //pierwiastek
+    double value = Math.Sqrt(2f); //pierwiastek
     Console.WriteLine(value);
     value = Math.Pow(2, 5); //potęga 
     Console.WriteLine(value);
@@ -95,7 +97,6 @@ void Numbers()
     //formatowanie liczb
     Console.WriteLine($"{short.MaxValue:### ###.0#}");
 
-
     Console.WriteLine("Podaj jakąś wartość liczbową:");
     string intput = Console.ReadLine();
 
@@ -108,6 +109,26 @@ void Numbers()
     float floatValue = float.Parse(intput);
     Console.WriteLine(floatValue * 3.5);
 
+
+    long longValue = intValue;
+    Console.WriteLine(longValue) ;
+
+    //rzutowanie - chcąc przypisać wartość o wyższej prezycji do zmiennej o niższej precyzji musimy zastosować rzutowanie
+    intValue = (int)longValue;
+    Console.WriteLine(intValue);
+
+    longValue = 10000000000000L;
+    intValue = (int)longValue;
+    Console.WriteLine(intValue);
+
+    floatValue = (float)5.6;
+
+    double doubleValue = floatValue;
+    intValue = (int)floatValue;
+
+    float max = Math.Max(intValue, floatValue);
+    //niektóre metody zwracają inny typ danych, niż ten z którego korzystamy, więc tu przydaje się rzutowanie
+    float average = (float)Math.Pow(floatValue, 2);
 }
 
 void Strings()
