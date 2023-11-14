@@ -4,7 +4,18 @@ using System.Runtime.Serialization;
 Console.WriteLine("Podaj bok kwadratu:");
 string input = Console.ReadLine();
 
-float size = float.Parse(input);
+//TryParse - zwraca wartość bool mówiącą czy parsowanie się powiodło
+//out - parameter wyjściowy - parametr przez który metoda może nam zwrócić jakąś dodatkową wartość (w tym przypadku jest to wynik parsowania)
+// jeśli parsowanie się nie powiodło, to w parametrze wyjściowym będzie wpisana wartość domyślna typu (dla typów liczbowych jest to 0)
+float size;
+bool parseSuccess = float.TryParse(input, out size);
+if(!parseSuccess)
+{
+    Console.WriteLine("Nieprawidłowe dane");
+    return; //przerywamy działanie funkcji. Aktualnie jesteśmy w funkcji Main, więc przerwanie jej oznacza zakończenie działania programu
+}
+
+
 
 //if sprawdza warunek w nawiasie i jeśli jest on prawdą, to wykonuje się blok kodu pod nim
 if (size < 0)
@@ -43,6 +54,10 @@ result = size > 0 && size <= 10; // && - i logiczne (AND)
 result = !result; //zaprzeczenie
 
 Console.WriteLine();
+
+
+
+
 
 void Lists()
 {
