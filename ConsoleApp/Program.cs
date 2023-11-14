@@ -1,49 +1,98 @@
 ﻿using System.Globalization;
 
+//tworzymy nową listę. Lista po inicjalizacji jest pusta.
+//List<string> mojaLista = new List<string>();
+List<string> myList = new();
 
-int a = 5;
-int b = 10;
-int c = 20;
+Console.WriteLine(myList.Count);
 
-//deklaracja tablicy przechowującej dane typu int
-//[] - tablica
-int[] arrayInt;
-//inicjalizujemy zmienną nową tablicą typu int o rozmiarze 3
-arrayInt = new int[3];
+//dodajemy nowy element na koniec listy, rozmiar listy się zwiększa
+myList.Add("ala");
+Console.WriteLine(myList.Count);
+myList.Add("ma");
+Console.WriteLine(myList.Count);
+myList.Add("dwa");
+Console.WriteLine(myList.Count);
+myList.Add("psy");
+Console.WriteLine(myList.Count);
 
-//tablice indeksowane są od 0 (minimalny indeks)
-arrayInt[0] = a;
-arrayInt[1] = b;
-//maksymalny indeks tablicy to rozmian minus 1 ( 3 - 1 = 2)
-arrayInt[2] = c;
+//wstawiamy element na konkretny indeks listy - pozostałe przesuwają się
+myList.Insert(2, "kota");
+myList.Insert(3, "i");
+Console.WriteLine(myList.Count);
 
+//usuwamy element spod wskazanego indeksu
+myList.RemoveAt(myList.Count - 2);
+Console.WriteLine(myList.Count);
 
-arrayInt[0] = arrayInt[0] * 2;
-arrayInt[1] = arrayInt[1] * arrayInt[2];
+myList.Add("ala");
+//usuwamy konkretny element z listy - jeśli występuje sięcej takich elementów, to usunięty zostanie piewszy z nich
+myList.Remove("ala");
+myList.Remove(myList[3]);
+Console.WriteLine(myList.Count);
 
-
-Console.WriteLine(arrayInt[0]);
-Console.WriteLine(arrayInt[1]);
-Console.WriteLine(arrayInt[2]);
-
-Console.WriteLine($"Tablica ma rozmiar {arrayInt.Length}");
-
-string[] stringArray = new string[5];
-
-stringArray[0] = Console.ReadLine();
-
-
-Console.WriteLine("Napisz coś:");
-string input = Console.ReadLine();
-
-string[] words = input.Split(" ");
-Console.WriteLine($"Ilość wyrazów: {words.Length}");
-Console.WriteLine($"Pierwszy wyraz: {words[0]}");
+Console.WriteLine(myList[0]);
+Console.WriteLine(myList[1]);
+Console.WriteLine(myList[2]);
+myList[0] = "bob";
+Console.WriteLine(myList[0]);
 
 
-
+myList = Console.ReadLine().Split(" ").ToList();
+Console.WriteLine(myList.Count);
+myList.Clear();
+Console.WriteLine(myList.Count);
 Console.WriteLine();
 
+
+
+
+void Arrays()
+{
+
+    int a = 5;
+    int b = 10;
+    int c = 20;
+
+    //deklaracja tablicy przechowującej dane typu int
+    //[] - tablica
+    int[] arrayInt;
+    //inicjalizujemy zmienną nową tablicą typu int o rozmiarze 3
+    arrayInt = new int[3];
+
+    //tablice indeksowane są od 0 (minimalny indeks)
+    arrayInt[0] = a;
+    arrayInt[1] = b;
+    //maksymalny indeks tablicy to rozmian minus 1 ( 3 - 1 = 2)
+    arrayInt[2] = c;
+
+
+    arrayInt[0] = arrayInt[0] * 2;
+    arrayInt[1] = arrayInt[1] * arrayInt[2];
+
+
+    Console.WriteLine(arrayInt[0]);
+    Console.WriteLine(arrayInt[1]);
+    Console.WriteLine(arrayInt[2]);
+
+    Console.WriteLine($"Tablica ma rozmiar {arrayInt.Length}");
+
+    string[] stringArray = new string[5];
+
+    stringArray[0] = Console.ReadLine();
+
+
+    Console.WriteLine("Napisz coś:");
+    string input = Console.ReadLine();
+
+    string[] words = input.Split(" ");
+    Console.WriteLine($"Ilość wyrazów: {words.Length}");
+    Console.WriteLine($"Pierwszy wyraz: {words[0]}");
+
+
+
+    Console.WriteLine();
+}
 
 
 
