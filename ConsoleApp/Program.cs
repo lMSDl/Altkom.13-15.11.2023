@@ -1,51 +1,109 @@
 ﻿using System.Globalization;
-using System.Runtime.Serialization;
 
 
-Console.WriteLine(  "Podaj swoje imię:");
-string input = Console.ReadLine();
 
-//switch - przyjmuje paramet, który jest porównywany z listą przypadków (case)
-switch (input)
+
+
+bool exit = false;
+
+//while - pętla która trwa gdy jej parametr jest true
+//parametr jest sprawdzany PRZED każdym wejściem do ciała pętli
+//jeśli przy pierwszym wejściu parametr będzie false, to pętla nigdy się nie wykona
+
+//while(true) //pętla nieskończona
+while(!exit)
 {
-    //case - rozpatrywany przypadek
-    case "":
-        Console.WriteLine("Szkoda, że nie  chcesz podać swojego imienia");
-        break;
-        //wiwele case'ów może być przypisanych do tego samego kodu
-    case "Alexa":
-    case "alexa":
-        Console.WriteLine("Hej, masz na imię jak asysten Amazon");
-        //kod wykonywany jest od case do break = nie mam potrzeby stosowania klamerek
-        //case musi kończyć się instrukcją break, przerywającą wykonywanie switch
-        break;
-    case "Siri":
-    case "siri":
-        Console.WriteLine("Hej, masz na imię jak asysten Apple");
-        break;
-    case "Cortana":
-    case "cortana":
-        Console.WriteLine("Hej, masz na imię jak asysten Microsoft");
-        break;
-    case "Paul":
-        Console.WriteLine("O.. masz na imię jak mój twórca..");
-        break;
-        //default - odpowiednik else, czyli wykonanie kodu, jeśli nie znaleziono odpowiedniego case
-        //nie jest obowiązkowy
-    default:
-        Console.WriteLine($"Witaj, {input}");
-        break;
+    Console.WriteLine("Co chcesz zrobić?");
+    string input = Console.ReadLine();
+
+    switch (input)
+    {
+        case "exit":
+            exit = true;
+            break;
+
+        default:
+            Console.WriteLine($"Echo: {input}");
+            break;
+    }
+
+
+    Console.ReadLine();
+    Console.Clear();
 }
 
-int intValue = 5;
-switch(intValue)
+//do-while - sprawdza warunek po wykonaniu ciała - zapewnia, że zostanie ono wyjonane co najmniej raz
+//pozwala to wyeliminować inicjalizację zmiennych przed wejściem do pętli (jeśli zostaną zainicjalizowane wenątrz ciała)
+do
 {
-    case < 0:
-        break;
-    case 5:
-        break;
-    case >= 6:
-        break;
+    Console.WriteLine("Co chcesz zrobić?");
+    string input = Console.ReadLine();
+
+    switch (input)
+    {
+        case "exit":
+            exit = true;
+            break;
+
+        default:
+            exit = false;
+            Console.WriteLine($"Echo: {input}");
+            break;
+    }
+
+
+    Console.ReadLine();
+    Console.Clear();
+} while (!exit);
+
+
+void Switch()
+{
+    Console.WriteLine("Podaj swoje imię:");
+    string input = Console.ReadLine();
+
+    //switch - przyjmuje paramet, który jest porównywany z listą przypadków (case)
+    switch (input)
+    {
+        //case - rozpatrywany przypadek
+        case "":
+            Console.WriteLine("Szkoda, że nie  chcesz podać swojego imienia");
+            break;
+        //wiwele case'ów może być przypisanych do tego samego kodu
+        case "Alexa":
+        case "alexa":
+            Console.WriteLine("Hej, masz na imię jak asysten Amazon");
+            //kod wykonywany jest od case do break = nie mam potrzeby stosowania klamerek
+            //case musi kończyć się instrukcją break, przerywającą wykonywanie switch
+            break;
+        case "Siri":
+        case "siri":
+            Console.WriteLine("Hej, masz na imię jak asysten Apple");
+            break;
+        case "Cortana":
+        case "cortana":
+            Console.WriteLine("Hej, masz na imię jak asysten Microsoft");
+            break;
+        case "Paul":
+            Console.WriteLine("O.. masz na imię jak mój twórca..");
+            break;
+        //default - odpowiednik else, czyli wykonanie kodu, jeśli nie znaleziono odpowiedniego case
+        //nie jest obowiązkowy
+        default:
+            Console.WriteLine($"Witaj, {input}");
+            break;
+    }
+
+    int intValue = 5;
+    switch (intValue)
+    {
+        case < 0:
+            break;
+        case 5:
+            break;
+        case >= 6:
+            break;
+    }
 }
 
 /*if (input == "")
