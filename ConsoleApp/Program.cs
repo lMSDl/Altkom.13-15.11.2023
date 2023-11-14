@@ -1,50 +1,97 @@
 ﻿using System.Globalization;
+using System.Runtime.Serialization;
 
-//tworzymy nową listę. Lista po inicjalizacji jest pusta.
-//List<string> mojaLista = new List<string>();
-List<string> myList = new();
+Console.WriteLine("Podaj bok kwadratu:");
+string input = Console.ReadLine();
 
-Console.WriteLine(myList.Count);
+float size = float.Parse(input);
 
-//dodajemy nowy element na koniec listy, rozmiar listy się zwiększa
-myList.Add("ala");
-Console.WriteLine(myList.Count);
-myList.Add("ma");
-Console.WriteLine(myList.Count);
-myList.Add("dwa");
-Console.WriteLine(myList.Count);
-myList.Add("psy");
-Console.WriteLine(myList.Count);
+//if sprawdza warunek w nawiasie i jeśli jest on prawdą, to wykonuje się blok kodu pod nim
+if (size < 0)
+{
+    Console.WriteLine("Nieprawidłowy rozmiar");
+}
+//jeśli poprzedni warunek nie jest spełniony, to sprawdzamy kolejny if
+//else if - może występować wielokrotnie
+else if(size == 0)
+{
+    Console.WriteLine("Kwadrat nie istnieje");
+}
+//else - wykonuje siuę w każdym innym przypadku (jeśli nie spełniono żadnego z wyżej występujących warunków)
+else
+{
+    float area = size * size;
+    Console.WriteLine($"Pole kwadratu to: {area}");
+}
 
-//wstawiamy element na konkretny indeks listy - pozostałe przesuwają się
-myList.Insert(2, "kota");
-myList.Insert(3, "i");
-Console.WriteLine(myList.Count);
+//jeśli używamy else, to tylko jeden blok kodu zostanie wykonany i sprawdzanie warunków kończy się w przypadku wejścia w któryś z nich
+//jeśli nie używamy else, to każdy if będzie traktowany osobno i warunek będzie sprawdzany niezależnie od innych
+//wniosek: else jest łącznikiem między kolenymi if'ami
 
-//usuwamy element spod wskazanego indeksu
-myList.RemoveAt(myList.Count - 2);
-Console.WriteLine(myList.Count);
+bool result;
 
-myList.Add("ala");
-//usuwamy konkretny element z listy - jeśli występuje sięcej takich elementów, to usunięty zostanie piewszy z nich
-myList.Remove("ala");
-myList.Remove(myList[3]);
-Console.WriteLine(myList.Count);
+result = size == 0; //porównanie
+result = size > 0; //większe
+result = size < 0; //mniejsze
+result = size >= 0; //wieksze lub równe
+result = size <= 0; //mniejsze lub równe
+result = size != 0; //różne
 
-Console.WriteLine(myList[0]);
-Console.WriteLine(myList[1]);
-Console.WriteLine(myList[2]);
-myList[0] = "bob";
-Console.WriteLine(myList[0]);
+result = size > 0 || size == 0; // || - lub logiczne (OR)
+result = size > 0 && size <= 10; // && - i logiczne (AND)
 
+result = !result; //zaprzeczenie
 
-myList = Console.ReadLine().Split(" ").ToList();
-Console.WriteLine(myList.Count);
-myList.Clear();
-Console.WriteLine(myList.Count);
 Console.WriteLine();
 
+void Lists()
+{
 
+    //tworzymy nową listę. Lista po inicjalizacji jest pusta.
+    //List<string> mojaLista = new List<string>();
+    List<string> myList = new();
+
+    Console.WriteLine(myList.Count);
+
+    //dodajemy nowy element na koniec listy, rozmiar listy się zwiększa
+    myList.Add("ala");
+    Console.WriteLine(myList.Count);
+    myList.Add("ma");
+    Console.WriteLine(myList.Count);
+    myList.Add("dwa");
+    Console.WriteLine(myList.Count);
+    myList.Add("psy");
+    Console.WriteLine(myList.Count);
+
+    //wstawiamy element na konkretny indeks listy - pozostałe przesuwają się
+    myList.Insert(2, "kota");
+    myList.Insert(3, "i");
+    Console.WriteLine(myList.Count);
+
+    //usuwamy element spod wskazanego indeksu
+    myList.RemoveAt(myList.Count - 2);
+    Console.WriteLine(myList.Count);
+
+    myList.Add("ala");
+    //usuwamy konkretny element z listy - jeśli występuje sięcej takich elementów, to usunięty zostanie piewszy z nich
+    myList.Remove("ala");
+    myList.Remove(myList[3]);
+    Console.WriteLine(myList.Count);
+
+    Console.WriteLine(myList[0]);
+    Console.WriteLine(myList[1]);
+    Console.WriteLine(myList[2]);
+    myList[0] = "bob";
+    Console.WriteLine(myList[0]);
+
+
+    myList = Console.ReadLine().Split(" ").ToList();
+    Console.WriteLine(myList.Count);
+    myList.Clear();
+    Console.WriteLine(myList.Count);
+    Console.WriteLine();
+
+}
 
 
 void Arrays()
