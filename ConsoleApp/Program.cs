@@ -1,6 +1,52 @@
 ﻿using System.Globalization;
 
+//I - inicjalizacja pętli - wykonuje się tylko raz na początku
+//II - warunek kontynuacji pętli - wykonuje się przed każdym wykonaniem ciałą
+//III - ciało pętli
+//IV - akcja po wykonaniu ciałą - najczęściej jest to inkrementacja licznika
 
+//for(I; II; IV) {
+// III
+//}
+
+for(int i = 0; i < 5; i++ /*i = i + 1*/)
+{
+    Console.WriteLine(i);
+}
+
+
+/*for(; ; )
+{
+    Console.WriteLine("*");
+}*/
+
+int counter = 5;
+
+for (; counter >=0; counter--)
+{
+    Console.WriteLine(  counter);
+}
+
+for (; counter < 3;)
+{
+    Console.WriteLine(counter++);
+}
+
+float result = 0;
+for (double i = 0, limit = Math.Sqrt(4); result < limit; i++)
+{
+    result = (float)Math.Sqrt(i);
+}
+Console.WriteLine(result);
+
+
+string someInput = Console.ReadLine();
+string[] strings = someInput.Split(" ");
+
+for (int i = strings.Length - 1; i >= 0; i--)
+{
+    Console.WriteLine(strings[i]);
+}
 
 
 
