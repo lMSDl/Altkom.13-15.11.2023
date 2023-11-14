@@ -32,7 +32,21 @@ string[] stringArray = new string[5];
 
 stringArray[0] = Console.ReadLine();
 
+
+Console.WriteLine("Napisz coś:");
+string input = Console.ReadLine();
+
+string[] words = input.Split(" ");
+Console.WriteLine($"Ilość wyrazów: {words.Length}");
+Console.WriteLine($"Pierwszy wyraz: {words[0]}");
+
+
+
 Console.WriteLine();
+
+
+
+
 
 
 void TimeExercise()
