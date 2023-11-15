@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList", "ShoppingList\ShoppingList.csproj", "{39587B89-2EAE-4E8C-912B-55A3A5F1B35E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inheritance", "Inheritance\Inheritance.csproj", "{E7305A14-CC83-461B-9D1B-58F455B09EC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{39587B89-2EAE-4E8C-912B-55A3A5F1B35E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39587B89-2EAE-4E8C-912B-55A3A5F1B35E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39587B89-2EAE-4E8C-912B-55A3A5F1B35E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7305A14-CC83-461B-9D1B-58F455B09EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7305A14-CC83-461B-9D1B-58F455B09EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7305A14-CC83-461B-9D1B-58F455B09EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7305A14-CC83-461B-9D1B-58F455B09EC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
