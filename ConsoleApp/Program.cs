@@ -1,66 +1,95 @@
 ﻿using System.Globalization;
+using Models;
 
-bool exit = false;
-do
+
+Product coffee = new Product();
+
+Console.WriteLine($"Nazwa: {coffee.GetType().Name}");
+Console.WriteLine($"Namespace: {coffee.GetType().Namespace}");
+Console.WriteLine($"Pełna nazwa: {coffee.GetType().FullName}");
+
+//coffee._name = "Kawa";
+coffee.SetName("Kawa");
+coffee.Description = "dobra kawa";
+coffee.Price = 55;
+
+
+//Console.WriteLine(coffee._name);
+Console.WriteLine(coffee.GetName());
+Console.WriteLine(coffee.Description);
+Console.WriteLine(coffee.Price);
+Console.WriteLine("Doliczamy VAT");
+Console.WriteLine(coffee.PriceWithVat(0.23f));
+
+Console.WriteLine(coffee.Summarize());
+
+Product custom = Product.Parse(Console.ReadLine());
+Console.WriteLine(  custom.Summarize() );
+
+
+void BreakContinue()
 {
-    Console.WriteLine("Co chcesz zrobić?");
-    string input = Console.ReadLine();
-
-    if (input == "continue")
+    bool exit = false;
+    do
     {
-        //continue przerywa ciało pętli i przechodzi do kolejnej iteracji
-        continue;
-    }
-    else if (input == "break")
+        Console.WriteLine("Co chcesz zrobić?");
+        string input = Console.ReadLine();
+
+        if (input == "continue")
+        {
+            //continue przerywa ciało pętli i przechodzi do kolejnej iteracji
+            continue;
+        }
+        else if (input == "break")
+        {
+            //break przerywa ciało pętli i wyszedł z pętli
+            break;
+        }
+        else if (input == "exit")
+        {
+            exit = true;
+        }
+        else
+        {
+            Console.WriteLine($"Echo: {input}");
+        }
+
+        Console.WriteLine("Koniec ciała pętli");
+
+    } while (!exit);
+
+    Console.WriteLine("Koniec pętli");
+
+
+    string[] stringNumbers = Console.ReadLine().Split(" ");
+
+    List<int> validInts = new();
+    List<int> zeroInts = new();
+
+    foreach (string stringNumber in stringNumbers)
     {
-        //break przerywa ciało pętli i wyszedł z pętli
-        break;
+        int value;
+        if (int.TryParse(stringNumber, out value))
+        {
+            validInts.Add(value);
+        }
+        else
+        {
+            Console.WriteLine($"{stringNumber} jest niepoprawną wartością");
+            continue;
+        }
+
+        if (value == 0)
+            zeroInts.Add(value);
+
+        if (value > 50)
+            break;
     }
-    else if (input == "exit")
+
+    foreach (int zeros in zeroInts)
     {
-        exit = true;
+        Console.WriteLine(zeros);
     }
-    else
-    { 
-        Console.WriteLine($"Echo: {input}");
-    }
-
-    Console.WriteLine("Koniec ciała pętli");
-
-} while (!exit);
-
-Console.WriteLine("Koniec pętli");
-
-
-string[] stringNumbers = Console.ReadLine().Split(" ");
-
-List<int> validInts = new();
-List<int> zeroInts = new();
-
-foreach(string stringNumber in stringNumbers)
-{
-    int value;
-    if(int.TryParse(stringNumber, out value))
-    {
-        validInts.Add(value);
-    }
-    else
-    {
-        Console.WriteLine($"{stringNumber} jest niepoprawną wartością");
-        continue;
-    }
-
-    if (value == 0)
-        zeroInts.Add(value);
-
-    if (value > 50)
-        break;
-
-}
-
-foreach (int zeros in zeroInts)
-{
-    Console.WriteLine(zeros);
 }
 
 void Loops()
