@@ -6,6 +6,31 @@ namespace Models
     //pełna nazwa klasy: namespace + nazwa
     public class Product
     {
+        //metoda konstrukcyjna (konstruktor) bezparametrowa
+        //brak typu zwracanego i nazwa taka sama jak nazwa klasy
+        //jeśli klasa nie ma żadnego konstruktora, to konstruktor bezparametrowy zostanie do niej automatycznie dodany
+        //konstruktor służy do ustawienia wartości początkowych pól i właściwości klasy. Domyślnie wartości są ustawiane na domyślne wartości odpowiadające typowi pola/właściowści
+        public Product()
+        {
+            SetName("NoName");
+        }
+
+        //konstruktor parametrowy -- służy do zapewnienia klasie wartości początkowych wskazanych jako parametry
+        //jeśli w klasie występuje jakikolwiek konstruktor parametrowy, to konstruktor domyślny (bezparametrowy) nie zostanie wytworzony
+        //chcąc posiadać też konsturktor bezparametrowy musimy go jawnie utworzyć
+        public Product(string name)
+        {
+            _name = name;
+        }
+        //możemy mieć wiele konstruktorów parametrowych o ile różnią się wygnaturą (kolejnością i typem parametrów)
+        public Product(string name, string description, float price)
+        {
+            _name = name;
+            Description = description;
+            Price = price;
+        }
+
+
         //pole klasy (field)
         //private - modyfikator dostępu - oznacza dostęp tylko dla elementów danej klasy
         //brak modyfikatora dostępu = private
@@ -15,7 +40,7 @@ namespace Models
 
 
         //setter do ustawiania wartości pola _name - metoda przyjmująca jako parametr wartość, która zostanie wpisana do pola
-        //schemat sygnatury metody: <modyfikator dostępu> <nazwa funkcji>(<opcjonalne parametry: typ + nazwa>)
+        //schemat sygnatury metody: <modyfikator dostępu> <tym zwracany> <nazwa funkcji>(<opcjonalne parametry: typ + nazwa>)
         public void SetName(string name)
         {
             //this.name = name; //this oznacza odniesienie do klasy, dzięki czemu możemy rozróżnić pole od parametru metody jeśli nazwy są takie same

@@ -8,6 +8,7 @@ Console.WriteLine($"Nazwa: {coffee.GetType().Name}");
 Console.WriteLine($"Namespace: {coffee.GetType().Namespace}");
 Console.WriteLine($"Pełna nazwa: {coffee.GetType().FullName}");
 
+Console.WriteLine(coffee.GetName());
 //coffee._name = "Kawa";
 coffee.SetName("Kawa");
 coffee.Description = "dobra kawa";
@@ -26,6 +27,11 @@ Console.WriteLine(coffee.Summarize());
 Product custom = Product.Parse(Console.ReadLine());
 Console.WriteLine(  custom.Summarize() );
 
+Product tea = new Product("Herbata");
+Console.WriteLine(tea.Summarize());
+
+Product toy = new Product("Samochodzik", "czerowny", 15.34f);
+Console.WriteLine(toy.Summarize());
 
 void BreakContinue()
 {
